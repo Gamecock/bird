@@ -29,8 +29,8 @@ WildRydes.map = WildRydes.map || {};
                     Latitude: sightingLocation.latitude,
                     Longitude: sightingLocation.longitude
                 },
-                Species:species,
-                Number: number
+                species:species,
+                quantiy: quantity
             }),
             contentType: 'application/json',
             success: completeRequest,
@@ -46,15 +46,6 @@ WildRydes.map = WildRydes.map || {};
         var unicorn;
         var pronoun;
         console.log('Response received from API: ', result);
-        unicorn = result.Unicorn;
-        pronoun = unicorn.Gender === 'Male' ? 'his' : 'her';
-        displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.');
-        animateArrival(function animateCallback() {
-            displayUpdate(unicorn.Name + ' has arrived. Giddy up!');
-            WildRydes.map.unsetLocation();
-            $('#request').prop('disabled', 'disabled');
-            $('#request').text('Set Pickup');
-        });
     }
 
     // Register click handler for #request button
