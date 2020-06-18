@@ -5,7 +5,7 @@ WildRydes.map = WildRydes.map || {};
 
 (function rideScopeWrapper($) {
     var authToken;
-    /*WildRydes.authToken.then(function setAuthToken(token) {
+    WildRydes.authToken.then(function setAuthToken(token) {
         if (token) {
             authToken = token;
         } else {
@@ -14,7 +14,7 @@ WildRydes.map = WildRydes.map || {};
     }).catch(function handleTokenError(error) {
         alert(error);
         window.location.href = '/signin.html';
-    });*/
+    });
     function logSighting(sightingLocation) {
         var species = $('#species').val()
         var quantity = $('#quantity').val();
