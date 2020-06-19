@@ -29,8 +29,8 @@ console.log("Wild Rides", WildRydes);
                     Latitude: sightingLocation.latitude,
                     Longitude: sightingLocation.longitude
                 },
-                species:species,
-                quantiy: quantity
+                species: species,
+                quantity: quantity
             }),
             contentType: 'application/json',
             success: completeRequest,
@@ -77,5 +77,26 @@ console.log("Wild Rides", WildRydes);
         logSighting(sightingLocation);
     }
 
+    function animateArrival(callback) {
+        var dest = WildRydes.map.selectedPoint;
+        var origin = {};
 
+        if (dest.latitude > WildRydes.map.center.latitude) {
+            origin.latitude = WildRydes.map.extent.minLat;
+        } else {
+            origin.latitude = WildRydes.map.extent.maxLat;
+        }
+
+        if (dest.longitude > WildRydes.map.center.longitude) {
+            origin.longitude = WildRydes.map.extent.minLng;
+        } else {
+            origin.longitude = WildRydes.map.extent.maxLng;
+        }
+
+        WildRydes.map.animate(origin, dest, callback);
+    }
+
+    function displayUpdate(text) {
+        $('#updates').append($('<li>' + text + '</li>'));
+    }
 }(jQuery));
