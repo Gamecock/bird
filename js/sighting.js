@@ -28,7 +28,7 @@ console.log("Wild Rides", WildRydes);
                 SightingLocation: {
                     Latitude: sightingLocation.latitude,
                     Longitude: sightingLocation.longitude
-                },
+                }
             }),
             contentType: 'application/json',
             success: completeRequest,
