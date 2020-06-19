@@ -2,7 +2,7 @@
 
 var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
-
+console.log("Wild Rides", WildRydes);
 (function rideScopeWrapper($) {
     var authToken;
     WildRydes.authToken.then(function setAuthToken(token) {
