@@ -1,6 +1,6 @@
 /*global WildRydes _config*/
 
-var WildRydes = window.WildRydes || {};
+var WildRydes = window.Bird || {};
 WildRydes.map = WildRydes.map || {};
 console.log("Wild Rides", WildRydes);
 (function rideScopeWrapper($) {
@@ -11,7 +11,6 @@ console.log("Wild Rides", WildRydes);
         } else {
             window.location.href = '/signin.html';
         }
-        console.log('Auth Token:', authToken);
     }).catch(function handleTokenError(error) {
         alert(error);
         window.location.href = '/signin.html';
@@ -52,11 +51,11 @@ console.log("Wild Rides", WildRydes);
     // Register click handler for #request button
     $(function onDocReady() {
         $('#request').click(handleRequestClick);
-        $(WildRydes.map).on('pickupChange', handlePickupChanged);
+        $(WildRydes.map).on('pickupChange', handleSightingChanged);
 
                 WildRydes.authToken.then(function updateAuthMessage(token) {
             if (token) {
-                displayUpdate('You are authenticated. Click to see your <a href="#authTokenModal" data-toggle="modal">auth token</a>.');
+                //displayUpdate('You are authenticated. Click to see your <a href="#authTokenModal" data-toggle="modal">auth token</a>.');
                 $('.authToken').text(token);
             }
         });
@@ -66,7 +65,7 @@ console.log("Wild Rides", WildRydes);
         }
     });
 
-    function handlePickupChanged() {
+    function handleSightingChanged() {
         var requestButton = $('#request');
         requestButton.text('Log Sighting');
         requestButton.prop('disabled', false);
@@ -78,24 +77,7 @@ console.log("Wild Rides", WildRydes);
         logSighting(sightingLocation);
     }
 
-    function animateArrival(callback) {
-        var dest = WildRydes.map.selectedPoint;
-        var origin = {};
-
-        if (dest.latitude > WildRydes.map.center.latitude) {
-            origin.latitude = WildRydes.map.extent.minLat;
-        } else {
-            origin.latitude = WildRydes.map.extent.maxLat;
-        }
-
-        if (dest.longitude > WildRydes.map.center.longitude) {
-            origin.longitude = WildRydes.map.extent.minLng;
-        } else {
-            origin.longitude = WildRydes.map.extent.maxLng;
-        }
-
-        WildRydes.map.animate(origin, dest, callback);
-    }
+    
 
     function displayUpdate(text) {
         $('#updates').append($('<li>' + text + '</li>'));
