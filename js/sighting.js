@@ -1,6 +1,6 @@
 /*global WildRydes _config*/
 
-var WildRydes = window.Bird || {};
+var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 console.log("Wild Rides", WildRydes);
 (function rideScopeWrapper($) {
