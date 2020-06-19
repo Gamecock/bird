@@ -25,18 +25,16 @@ console.log("Wild Rides", WildRydes);
                 Authorization: authToken
             },
             data: JSON.stringify({
-                sightingLocation: {
+                SightingLocation: {
                     Latitude: sightingLocation.latitude,
                     Longitude: sightingLocation.longitude
                 },
-                species: species,
-                quantity: quantity
             }),
             contentType: 'application/json',
             success: completeRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error logging sighting: ', textStatus, ', Details: ', errorThrown);
-                console.error('Response: ', jqXHR.responseText);
+                console.log('Response: ', jqXHR.responseText);
                 alert('An error occured when recording your sighting:\n' + jqXHR.responseText);
             }
         });
