@@ -11,6 +11,7 @@ console.log("Wild Rides", WildRydes);
         } else {
             window.location.href = '/signin.html';
         }
+        console.log('Auth Token:', authToken);
     }).catch(function handleTokenError(error) {
         alert(error);
         window.location.href = '/signin.html';
@@ -36,7 +37,7 @@ console.log("Wild Rides", WildRydes);
             success: completeRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error logging sighting: ', textStatus, ', Details: ', errorThrown);
-                console.log('Response: ', jqXHR.responseText);
+                console.error('Response: ', jqXHR.responseText);
                 alert('An error occured when recording your sighting:\n' + jqXHR.responseText);
             }
         });

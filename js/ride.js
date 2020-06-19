@@ -11,6 +11,7 @@ WildRydes.map = WildRydes.map || {};
         } else {
             window.location.href = '/signin.html';
         }
+        console.log('Auth Token:', authToken);
     }).catch(function handleTokenError(error) {
         alert(error);
         window.location.href = '/signin.html';
