@@ -16,7 +16,7 @@ console.log("Wild Rides", WildRydes);
         window.location.href = '/signin.html';
     });
     function logSighting(sightingLocation) {
-        var species = $('#species').val()
+        var species = $('#species').val();
         var quantity = $('#quantity').val();
         $.ajax({
             method: 'POST',
@@ -28,7 +28,9 @@ console.log("Wild Rides", WildRydes);
                 SightingLocation: {
                     Latitude: sightingLocation.latitude,
                     Longitude: sightingLocation.longitude
-                }
+                },
+                species: species,
+                quantity: quantity
             }),
             contentType: 'application/json',
             success: completeRequest,
