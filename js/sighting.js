@@ -24,6 +24,7 @@ console.log("Wild Rides", WildRydes);
             headers: {
                 Authorization: authToken
             },
+            dataType: 'json',
             data: JSON.stringify({
                 SightingLocation: {
                     Latitude: sightingLocation.latitude,
