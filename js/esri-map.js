@@ -4,6 +4,7 @@ var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 
 (function esriMapScopeWrapper($) {
+
     require([
         'esri/Map',
         'esri/views/MapView',
@@ -18,6 +19,8 @@ WildRydes.map = WildRydes.map || {};
         Graphic, Point, TextSymbol,
         PictureMarkerSymbol, webMercatorUtils
     ) {
+        navigator.geolocation.getCurrentPosition(locationSuccess, locationFail);
+        
         var wrMap = WildRydes.map;
 
         var map = new Map({ basemap: 'gray-vector' });
@@ -63,6 +66,15 @@ WildRydes.map = WildRydes.map || {};
                 maxLng: max[0],
                 maxLat: max[1]
             };
+        }
+
+        function locationSuccess(position) {
+            pt = new Point(position.coords.longitude, position.coords.latitude);
+            view.goTo(pt)
+        }
+
+        function locationFail(){
+            alert('Unable to determine location - You are in Seatle!')
         }
 
         view.watch('extent', updateExtent);
