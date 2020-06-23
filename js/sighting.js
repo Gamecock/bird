@@ -46,7 +46,8 @@ console.log("Wild Rides", WildRydes);
     function completeRequest(result) {
         $('#species').val('');
         $('#quantity').val('');
-        alert('Success! ' + result.numberOfRecordsUpdated + 'sightings added');
+        number = JSON.parse(result).numberOfRecordsUpdated
+        alert('Success! ' + number + 'sighting added');
         console.log('Response received from API: ', result);
     }
 
