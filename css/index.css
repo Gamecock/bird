@@ -125,6 +125,8 @@ body{
   border-radius: 40px;
   cursor: pointer;
   display: block;
+  text-align: center;
+  text-decoration: none;
 
   font-family: "fairplex-wide";
   font-size: 18px;
