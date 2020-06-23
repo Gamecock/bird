@@ -44,8 +44,9 @@ console.log("Wild Rides", WildRydes);
     }
 
     function completeRequest(result) {
-        var unicorn;
-        var pronoun;
+        $('#species').val('');
+        $('#quantity').val('');
+        alert('Success! ' + result.numberOfRecordsUpdated + 'sightings added');
         console.log('Response received from API: ', result);
     }
 
