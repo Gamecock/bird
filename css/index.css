@@ -115,7 +115,26 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
+.home-button{
+  width: 200px;
+  background-color: white;
+  color: #f50856;
+  padding: 14px 20px;
+  margin: 8px auto 30px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  display: block;
 
+  font-family: "fairplex-wide";
+  font-size: 18px;
+  opacity: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
 
 
 
@@ -218,7 +237,7 @@ input[type=text]:valid, input[type=password]:valid {
     border-bottom: 2px solid #f50856;
 } /* This is a quick fix to get an authorization / valid entry state without using JS */
 
-input[type=submit] {
+input[type=submit]{
     width: 200px;
     background-color: white;
     color: #f50856;
