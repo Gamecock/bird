@@ -1,7 +1,7 @@
 /*global WildRydes _config AmazonCognitoIdentity AWSCognito*/
 
 var WildRydes = window.WildRydes || {};
-
+console.log(WildRydes);
 (function scopeWrapper($) {
     var signinUrl = '/signin.html';
 
