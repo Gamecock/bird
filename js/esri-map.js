@@ -72,14 +72,14 @@ WildRydes.map = WildRydes.map || {};
             console.log("Received location: ", position);
             pt = new Point(position.coords.longitude, position.coords.latitude);
             var i = 0;
-            while(!view){setTimeout(function(){i++;},100);}
+            while(!view.hasOwnProperty("scale")){setTimeout(function(){i++; console.log("i =",i);},100);}
             view.goTo(pt);
         }
 
         function locationFail(){
             alert('Unable to determine location - You are in Seatle!')
         }
-
+        
         view.watch('extent', updateExtent);
         view.watch('center', updateCenter);
         view.then(function onViewLoad() {
