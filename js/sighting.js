@@ -15,16 +15,6 @@ console.log("Wild Rides", WildRydes);
         alert(error);
         window.location.href = '/signin.html';
     });
-    navigator.geolocation.getCurrentPosition(locationSuccess, locationFail);
-    function locationSuccess(position) {
-        pt = new Point(position.coords.longitude, position.coords.latitude);
-        console.log("New location: ",pt)
-        view.goTo(pt);
-    }
-
-    function locationFail() {
-        alert('Unable to detect location, you are in Seattle!.');
-    }
     function logSighting(sightingLocation) {
         var species = $('#species').val();
         var quantity = $('#quantity').val();
@@ -58,7 +48,6 @@ console.log("Wild Rides", WildRydes);
         $('#quantity').val('');
         console.log(result)
         console.log(result.numberOfRecordsUpdated)
-        console.log(JSON.parse(result))
         number = JSON.parse(result).numberOfRecordsUpdated
         alert('Success! ' + number + 'sighting added');
         console.log('Response received from API: ', result);
