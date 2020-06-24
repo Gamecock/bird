@@ -80,7 +80,7 @@ WildRydes.map = WildRydes.map || {};
         }
 
         function locationFail(){
-            alert('Unable to determine location - You are in Seatle!')
+            alert('Unable to determine location - You are in Seattle!')
         }
         
         view.watch('extent', updateExtent);
