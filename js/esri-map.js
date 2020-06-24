@@ -20,7 +20,7 @@ WildRydes.map = WildRydes.map || {};
         PictureMarkerSymbol, webMercatorUtils
     ) {
         navigator.geolocation.getCurrentPosition(locationSuccess, locationFail);
-        
+        console.log("position request");
         var wrMap = WildRydes.map;
 
         var map = new Map({ basemap: 'gray-vector' });
@@ -69,6 +69,7 @@ WildRydes.map = WildRydes.map || {};
         }
 
         function locationSuccess(position) {
+            console.log("Received location: ", position);
             pt = new Point(position.coords.longitude, position.coords.latitude);
             view.goTo(pt)
         }
