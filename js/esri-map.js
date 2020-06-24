@@ -70,9 +70,12 @@ WildRydes.map = WildRydes.map || {};
 
         function locationSuccess(position) {
             console.log("Received location: ", position);
-            pt = new Point(position.coords.longitude, position.coords.latitude);
-            var i = 0;
-            while(!view.hasOwnProperty("scale")){setTimeout(function(){i++; console.log("i =",i);},100);}
+            //pt = new Point(position.coords.longitude, position.coords.latitude);
+            var pt = view.center;
+            pt.longitude = position.coords.longitude;
+            pt.latitude = position.coords.latitude;
+            //while(!view.hasOwnProperty("scale")){setTimeout(function(){i++; console.log("i =",i);},100);}
+            console.log("Moving to position: ", pt);
             view.goTo(pt);
         }
 
