@@ -71,9 +71,9 @@ WildRydes.map = WildRydes.map || {};
         function locationSuccess(position) {
             console.log("Received location: ", position);
             pt = new Point(position.coords.longitude, position.coords.latitude);
-            setTimeout(function(){
-                view.goTo({target: pt, zoom: 12});
-              }, 1000);
+            var i = 0;
+            while(!view){setTimeout(function(){i++;},100);}
+            view.goTo(pt);
         }
 
         function locationFail(){
