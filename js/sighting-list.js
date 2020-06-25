@@ -16,10 +16,11 @@ console.log(WildRydes);
         alert(error);
         window.location.href = '/signin.html';
     });
+    
     function getSightings() {
-        console.log("Sending get");
+        console.log("Sending put");
         $.ajax({
-            method: 'GET',
+            method: 'PUT',
             url: _config.api.invokeUrl + '/sighting',
             headers: {
                 Authorization: authToken
@@ -36,7 +37,40 @@ console.log(WildRydes);
 
     function completeRequest(result) {
         console.log(result);
+        loadTable(result);
     }
+    
+    function loadTable(response){
+        response.records.forEach(element => {
+            record = element[0]["stringValue"].slice(1,-1)
+            appendToTable(record);
+        })
+    }
+
+    function appendToTable(record){
+        data_array = record.split(',')
+        data_array[0] = data_array[0].slice(1,-1);
+        markup = "<tr>";
+        data_array.forEach(element => {
+            markup = markup+"<td>"+element+"</td>";
+        });
+        markup += "</tr>";
+        table_body = $('#birdlist tbody');
+        table_body.append(markup);
+    }
+
+    /**
+    //Remove Block Quotes for local testing//
+    response = {
+        "numberOfRecordsUpdated": 0,
+        "records": [
+            [ { "stringValue": "(\"2020-06-25 01:54:45\",parrot,5,25.7586,-80.1957)"}],
+            [{"stringValue": "(\"2020-06-25 01:40:14\",duck,2,25.7519,-80.2033)"}],
+            [{ "stringValue": "(\"2020-06-25 01:39:29\",duck,2,25.7519,-80.2033)" }]
+        ]}
+    
+    loadTable(response);
+    **/
 }(jQuery));
 
 

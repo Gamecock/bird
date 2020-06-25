@@ -11,6 +11,26 @@
   <link rel="stylesheet" href="css/index.css">
 
   <script src="js/vendor/modernizr.js"></script>
+
+  <style> 
+    table { 
+        margin: 0 auto; 
+        column-gap: 0em;
+        background-color:rgba(0, 0, 0, 0.1);
+    }
+    table th {
+      font-weight: 900;
+
+    } 
+
+    table th, table td { 
+        padding: 10px; 
+        text-align: center;
+        color: white;
+
+    } 
+
+</style> 
   </head>
 <body >
 
@@ -20,17 +40,17 @@
     <div class="row column medium-8 large-6 xlarge-5 xxlarge-4">
       <h1 class="title">Birds you have seen.</h1>
     </div>
-
-    <nav class="site-nav">
-      <ul>
-        <li><a class="home-button" href="index.html">Home</a></li>
-      </ul>
-    </nav>
-    <button type="button" class="btn-menu"><span>Menu</span></button>
-  </header>
-
- 
-
+    <table class="birdlist" id="birdlist">
+      <tr>
+          <th>Date</th>
+          <th>Bird</th>
+          <th>Number</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+      </tr>
+      </table>
+        <a class="home-button" href="index.html">Home</a>
+    </header>
   
   <footer class="site-footer">
     <div class="row column">
