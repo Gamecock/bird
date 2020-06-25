@@ -17,19 +17,19 @@ console.log(WildRydes);
         window.location.href = '/signin.html';
     });
     function getSightings() {
+        console.log("Sending get");
         $.ajax({
             method: 'GET',
             url: _config.api.invokeUrl + '/sighting',
             headers: {
                 Authorization: authToken
             },
-            dataType: 'json',
             contentType: 'application/json',
             success: completeRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                console.error('Error logging sighting: ', textStatus, ', Details: ', errorThrown);
+                console.error('Error getting sightings: ', textStatus, ', Details: ', errorThrown);
                 console.error('Response: ', jqXHR.responseText);
-                alert('An error occured when recording your sighting:\n' + jqXHR.responseText);
+                alert('An error occured when getting your sightings:\n' + jqXHR.responseText);
             }
         });
     }
