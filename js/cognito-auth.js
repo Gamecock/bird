@@ -1,7 +1,7 @@
-/*global WildRydes _config AmazonCognitoIdentity AWSCognito*/
+/*global BirdSighting _config AmazonCognitoIdentity AWSCognito*/
 
-var WildRydes = window.WildRydes || {};
-console.log(WildRydes);
+var BirdSighting = window.BirdSighting || {};
+
 (function scopeWrapper($) {
     var signinUrl = '/signin.html';
 
@@ -25,11 +25,11 @@ console.log(WildRydes);
         AWSCognito.config.region = _config.cognito.region;
     }
 
-    WildRydes.signOut = function signOut() {
+    BirdSighting.signOut = function signOut() {
         userPool.getCurrentUser().signOut();
     };
 
-    WildRydes.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
+    BirdSighting.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
         var cognitoUser = userPool.getCurrentUser();
 
         if (cognitoUser) {

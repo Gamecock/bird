@@ -1,11 +1,11 @@
-/*global WildRydes _config*/
+/*global BirdSighting _config*/
 
-var WildRydes = window.WildRydes || {};
-WildRydes.map = WildRydes.map || {};
-console.log("Wild Rides", WildRydes);
+var BirdSighting = window.BirdSighting || {};
+BirdSighting.map = BirdSighting.map || {};
+
 (function rideScopeWrapper($) {
     var authToken;
-    WildRydes.authToken.then(function setAuthToken(token) {
+    BirdSighting.authToken.then(function setAuthToken(token) {
         if (token) {
             authToken = token;
         } else {
@@ -57,9 +57,9 @@ console.log("Wild Rides", WildRydes);
     // Register click handler for #request button
     $(function onDocReady() {
         $('#request').click(handleRequestClick);
-        $(WildRydes.map).on('pickupChange', handleSightingChanged);
+        $(BirdSighting.map).on('pickupChange', handleSightingChanged);
 
-                WildRydes.authToken.then(function updateAuthMessage(token) {
+        BirdSighting.authToken.then(function updateAuthMessage(token) {
             if (token) {
                 //displayUpdate('You are authenticated. Click to see your <a href="#authTokenModal" data-toggle="modal">auth token</a>.');
                 $('.authToken').text(token);
@@ -78,7 +78,7 @@ console.log("Wild Rides", WildRydes);
     }
 
     function handleRequestClick(event) {
-        var sightingLocation = WildRydes.map.selectedPoint;
+        var sightingLocation = BirdSighting.map.selectedPoint;
         event.preventDefault();
         logSighting(sightingLocation);
     }

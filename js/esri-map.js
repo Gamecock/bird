@@ -1,7 +1,7 @@
-/*global WildRydes _config*/
+/*global BirdSighting _config*/
 
-var WildRydes = window.WildRydes || {};
-WildRydes.map = WildRydes.map || {};
+var BirdSighting = window.BirdSighting || {};
+BirdSighting.map = BirdSighting.map || {};
 
 (function esriMapScopeWrapper($) {
 
@@ -20,8 +20,8 @@ WildRydes.map = WildRydes.map || {};
         PictureMarkerSymbol, webMercatorUtils
     ) {
         navigator.geolocation.getCurrentPosition(locationSuccess, locationFail);
-        console.log("position request");
-        var wrMap = WildRydes.map;
+        
+        var wrMap = BirdSighting.map;
 
         var map = new Map({ basemap: 'gray-vector' });
 

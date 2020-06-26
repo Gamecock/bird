@@ -1,10 +1,10 @@
-/*global WildRydes _config*/
+/*global BirdSighting _config*/
 
-var WildRydes = window.WildRydes || {};
-console.log(WildRydes);
+var BirdSighting = window.BirdSighting || {};
+
 (function listScopeWrapper($) {
     var authToken;
-    WildRydes.authToken.then(function setAuthToken(token) {
+    BirdSighting.authToken.then(function setAuthToken(token) {
         if (token) {
             authToken = token;
             console.log("Sending Request")
